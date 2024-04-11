@@ -1,5 +1,6 @@
 <?php
 require 'db.php';
+require 'config.php';
 
 if (isset($_POST['lat']) && isset($_POST['lon'])) {
     $lat = floatval($_POST['lat']);
@@ -11,7 +12,7 @@ if (isset($_POST['lat']) && isset($_POST['lon'])) {
         exit;
     }
 
-    $apiKey = '35b2fc4addcd9cbe8bf9f12304223347';
+    $apiKey = WEATHER_APP_API_KEY;
     $weatherData = getWeatherData($lat, $lon, $apiKey);
 
     if (!$weatherData || !isset($weatherData['main']['temp'], $weatherData['weather'][0]['description'])) {

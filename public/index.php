@@ -1,15 +1,12 @@
 <?php
+$pageTitle = "Login"; 
+include '../templates/header.php';
 include_once '../src/config.php'; 
 
-ini_set('session.cookie_httponly', 1);
-ini_set('session.cookie_secure', 1); // Enable this only if your site uses HTTPS
-session_start();
+include_once '../src/session_manager.php'; 
 
-if (empty($_SESSION['csrf_token'])) {
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-}
 if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-    header("Location: main.php");
+    header("Location: ../templates/main.php");
     exit;
 }
 
@@ -24,36 +21,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'], $_POST['pass
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body { display: flex; height: 100vh; align-items: center; justify-content: center; }
-        .container { width: 300px; }
-        .error { color: red; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h2>Login</h2>
-        <?php if ($error): ?>
-            <p class="error"><?= $error ?></p>
-        <?php endif; ?>
-        <form action="index.php" method="POST">
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Sign In</button>
-        </form>
+
+<div class="container">
+<h2>Login</h2>
+<?php if ($error): ?>
+    <p class="error text-danger"><?= $error ?></p>
+<?php endif; ?>
+<form action="index.php" method="POST">
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" name="email" required>
     </div>
-</body>
-</html>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign In</button>
+</form>
+</div>
+
+<?php include '../templates/footer.php'; // Include the footer template ?>
