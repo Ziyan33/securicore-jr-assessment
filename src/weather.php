@@ -1,7 +1,7 @@
 <?php
 require 'db.php';
 require 'config.php';
-
+header('Content-Type: application/json'); 
 if (isset($_POST['lat']) && isset($_POST['lon'])) {
     $lat = floatval($_POST['lat']);
     $lon = floatval($_POST['lon']);
@@ -27,9 +27,14 @@ if (isset($_POST['lat']) && isset($_POST['lon'])) {
     $stmt = $pdo->prepare("INSERT INTO weather (temperature, description, city) VALUES (?, ?, ?)");
     $stmt->execute([$temperature, $description, $city]);
     
-    echo "Weather for {$city}: {$temperature}°C, {$description}";
+    echo json_encode([
+        "city" => $city,
+        "temperature" => $temperature,
+        "description" => $description,
+        "recorded_at" => date('Y-m-d H:i:s')  // assuming you want to send the current date/time as recorded_at
+    ]);
 } else {
-    echo "Latitude and Longitude required.";
+    echo json_encode(["error" => "Latitude and Longitude required."]);
 }
 
 function getWeatherData($lat, $lon, $apiKey) {

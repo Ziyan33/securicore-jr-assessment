@@ -1,7 +1,11 @@
+function logout() {
+    document.location = '/task1-weatherApp/src/logout.php';
+}
+
 // Validate input fields
 function validateInput() {
-    var lat = parseFloat(document.getElementById('lat').value);
-    var lon = parseFloat(document.getElementById('lon').value);
+    var lat = document.getElementById('lat').value;
+    var lon = document.getElementById('lon').value;
     if (isNaN(lat) || isNaN(lon) || lat < -90 || lat > 90 || lon < -180 || lon > 180) {
         alert("Please enter valid latitude and longitude values.");
         return false;
@@ -23,8 +27,25 @@ function fetchWeather() {
             lat: lat,
             lon: lon
         },
-        success: function(response) {
-            $('#weatherResult').html(response);
+        dataType: 'json',  // Expecting JSON response
+        success: function(data) {
+            if(data.error) {
+                alert(data.error);
+            } else {
+                updateWeatherCard(data);
+            }
+        },
+        error: function(xhr) {
+            alert('Failed to fetch weather data. Error: ' + xhr.statusText);
         }
     });
+}
+// Function to update the weather card with fetched data
+function updateWeatherCard(data) {
+    var weatherCard = document.getElementById('weatherCard');
+    weatherCard.style.display = 'block';
+    document.getElementById('city').textContent = data.city || 'Unknown';
+    document.getElementById('temperature').textContent = 'Temperature: ' + data.temperature + '°C';
+    document.getElementById('weather-description').textContent = 'Description: ' + data.description;
+    document.getElementById('recorded_at').textContent = 'Date: ' + data.recorded_at;
 }

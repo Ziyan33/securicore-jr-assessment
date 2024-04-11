@@ -1,0 +1,17 @@
+body { 
+    background: #f4f4f9;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.weather-card {
+    display: none; /* Hidden by default, shown after data is fetched */
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+.icon {
+    font-size: 48px;
+    color: #5172b4; /* Adjust the color to fit your aesthetic */
+}
