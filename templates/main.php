@@ -22,6 +22,7 @@ header("Expires: 0"); // Proxies.
 </div> -->
 <div class="container">
     <div class="row justify-content-center">
+
         <div class="col-md-6">
             <form id="weatherForm" class="text-center">
                 <h1 class="h3 mb-3 fw-normal">Enter Coordinates</h1>
@@ -38,10 +39,30 @@ header("Expires: 0"); // Proxies.
                 </div>
             </div>
         </div>
+        <div class="col-md-6">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Temperature</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="weatherTable">
+            <!-- Weather data rows will be inserted here by JavaScript -->
+        </tbody>
+    </table>
+</div>
     </div>
+    <!-- Add this section inside your main container -->
+
+
+<script src="/task1-weatherApp/public/js/main.js"></script>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/task1-weatherApp/public/js/main.js"></script>  <!-- Link to external JS file -->
 
 <?php include '../templates/footer.php'; // Include the footer template ?>

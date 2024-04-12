@@ -1,8 +1,26 @@
 <?php
 require 'db.php';
 require 'config.php';
+
 header('Content-Type: application/json'); 
-if (isset($_POST['lat']) && isset($_POST['lon'])) {
+
+// Fetch and output all weather data for GET request
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM weather ORDER BY recorded_at DESC");
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        echo json_encode($results);
+    } catch (Exception $e) {
+        echo json_encode(["error" => $e->getMessage()]);
+    }
+    exit; // Stop the script here after handling GET request
+}
+
+
+// if (isset($_POST['lat']) && isset($_POST['lon'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['lat']) && isset($_POST['lon'])) {
+
     $lat = floatval($_POST['lat']);
     $lon = floatval($_POST['lon']);
 

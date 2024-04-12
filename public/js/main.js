@@ -20,6 +20,8 @@ function fetchWeather() {
     }
     var lat = $('#lat').val();
     var lon = $('#lon').val();
+    console.log("Latitude: ", lat, "Longitude: ", lon);
+
     $.ajax({
         url: '/task1-weatherApp/src/weather.php',
         type: 'POST',
@@ -49,3 +51,73 @@ function updateWeatherCard(data) {
     document.getElementById('weather-description').textContent = 'Description: ' + data.description;
     document.getElementById('recorded_at').textContent = 'Date: ' + data.recorded_at;
 }
+function fetchAllWeather() {
+    $.ajax({
+        url: '/task1-weatherApp/src/weather.php',  // Adjust this path as needed
+        type: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            if (data.error) {
+                console.error('Error fetching data:', data.error);
+                return;
+            }
+            
+            var tableBody = $('#weatherTable');
+            tableBody.empty();  // Clear existing table data
+
+            data.forEach(function(record) {
+                var row = $('<tr></tr>');
+                row.append($('<td></td>').text(record.city));
+                row.append($('<td></td>').text(record.temperature + '°C'));
+                row.append($('<td></td>').text(record.description));
+                row.append($('<td></td>').text(record.recorded_at));
+                row.append(
+                    $('<td></td>').append(
+                        $('<button>Delete</button>').click(function() {
+                            deleteWeather(record.id);
+                        })
+                    ).append(
+                        $('<button>Update</button>').click(function() {
+                            updateWeather(record.id, record.temperature, record.description);
+                        })
+                    )
+                );
+
+                tableBody.append(row);
+            });
+        },
+        error: function(xhr) {
+            console.error('Failed to fetch weather data:', xhr);
+        }
+    });
+}
+
+
+
+function deleteWeather(id) {
+    $.ajax({
+        url: '/task1-weatherApp/src/manageWeather.php',
+        type: 'POST',
+        data: { action: 'delete', id: id },
+        success: function(response) {
+            alert(response.message);
+            fetchAllWeather(); // Refresh the table
+        }
+    });
+}
+
+function updateWeather(id, temperature, description) {
+    // Add logic to capture new temperature and description values if needed
+    $.ajax({
+        url: '/task1-weatherApp/src/manageWeather.php',
+        type: 'POST',
+        data: { action: 'update', id: id, temperature: temperature, description: description },
+        success: function(response) {
+            alert(response.message);
+            fetchAllWeather(); // Refresh the table
+        }
+    });
+}
+
+// Call this function when the page loads to populate the table
+fetchAllWeather();
