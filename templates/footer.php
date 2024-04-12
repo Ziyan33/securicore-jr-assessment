@@ -1,7 +1,7 @@
 <!-- footer.php -->
 <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
-            <span class="text-muted">Place sticky footer content here.</span>
+            <span class="text-muted">ziyan liu - 2024.04.12</span>
         </div>
     </footer>
     <!-- Bootstrap JS, Popper.js, and jQuery -->

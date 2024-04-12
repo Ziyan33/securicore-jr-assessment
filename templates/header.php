@@ -39,10 +39,10 @@
                     <a class="nav-link" href="/task1-weatherApp/task2/fetchCustomers.php">Task2</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/Ziyan33/securicore-jr-assessment.git">GitHub</a>
+                    <a class="nav-link" href="https://github.com/Ziyan33/securicore-jr-assessment.git"target="_blank">GitHub</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="https://ziyan33-portfolio.netlify.app/">Ziyan's Portfolio</a>
+                    <a class="nav-link" href="https://ziyan33-portfolio.netlify.app/"target="_blank">Ziyan's Portfolio</a>
                 </li>
                
             </ul>

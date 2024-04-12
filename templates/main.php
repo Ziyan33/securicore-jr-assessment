@@ -28,6 +28,7 @@ header("Expires: 0"); // Proxies.
                 <h1 class="h3 mb-3 fw-normal">Enter Coordinates</h1>
                 <input type="text" id="lat" class="form-control" placeholder="Latitude" required>
                 <input type="text" id="lon" class="form-control mt-2" placeholder="Longitude" required>
+                <p>latitude range:-90 to 90  <br/> longitude range:-180 to 180 </p>
                 <button class="btn btn-lg btn-primary btn-block mt-4" type="button" onclick="fetchWeather();">Fetch Weather</button>
             </form>
             <div class="card weather-card" id="weatherCard">

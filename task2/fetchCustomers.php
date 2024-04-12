@@ -32,10 +32,10 @@ if ($_POST) {
     <link rel="stylesheet" href="/task1-weatherApp/public/css/style.css">
 <div class="center-div">
 <h1 class="text-center mb-4">Customer Data Management</h1>
-<p class="text-secondary">This sample data is from <a href="https://www.briandunning.com/sample-data/">Brian Dunning's Sample Data</a></p>
+<p class="text-secondary">This sample data is from <a href="https://www.briandunning.com/sample-data/" target="_blank">Brian Dunning's Sample Data</a></p>
     <a href="customers.txt" download class="btn btn-success mb-2">Download Customer Data</a>
    
-<table border="1">
+<table class="customer-table" border="1">
         <thead>
             <tr>
                 <?php foreach (explode(',', $header) as $column): ?>

@@ -24,10 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'], $_POST['pass
 <link rel="stylesheet" href="/task1-weatherApp/public/css/custom-login.css">
 
 <div class="page">
+    
     <div class="container">
         <div class="left">
             <div class="login">Login</div>
-            <div class="eula">By logging in you agree to the ridiculously long terms that you didn't bother to read</div>
+            <div class="eula"><span style="color:blue">Email:test@example.com<br/>Password:password </span><br/>Task 1 requires login. Task 2 does not need login.</div>
         </div>
         <div class="right">
         <svg viewBox="0 0 320 300">
