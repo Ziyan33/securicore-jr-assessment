@@ -15,3 +15,12 @@ body {
     font-size: 48px;
     color: #5172b4; /* Adjust the color to fit your aesthetic */
 }
+
+.log-window {
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 20px;
+}

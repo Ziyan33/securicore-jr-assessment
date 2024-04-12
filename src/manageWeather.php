@@ -14,10 +14,11 @@ switch ($action) {
         break;
     
     case 'update':
+        $city = $_POST['city'];
         $temperature = $_POST['temperature'];
         $description = $_POST['description'];
-        $stmt = $pdo->prepare("UPDATE weather SET temperature = ?, description = ? WHERE id = ?");
-        $stmt->execute([$temperature, $description, $id]);
+        $stmt = $pdo->prepare("UPDATE weather SET city=?, temperature = ?, description = ? WHERE id = ?");
+        $stmt->execute([$city,$temperature, $description, $id]);
         echo json_encode(['status' => 'success', 'message' => 'Record updated successfully']);
         break;
     

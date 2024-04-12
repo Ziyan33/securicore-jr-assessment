@@ -1,0 +1,6 @@
+Customer ID,First Name,Last Name,Email,City,State,Country,Zip,Phone
+1,Francoise,Raut,francoise.raute@ra.com,Windsor,ON,Canada,N8N 3N2,519-569-8399
+2,Kendra,Loud,kloud@gmail.com,Alcida,NB,Canada,E8J 2C4,506-363-1526
+3,Lourdes,Bauswell,lourdes_bauswell@aol.com,Belleville,ON,Canada,K8P 1B3,613-903-7043
+4,Hannah,Edmison,hannah@yahoo.com,Vancouver,BC,Canada,V5Z 3K2,604-334-3686
+5,Tom,Loeza,tom.loeza@gmail.com,LIle-Perrot,QC,Canada,J7V 4T4,514-487-6096

@@ -12,14 +12,14 @@ header("Expires: 0"); // Proxies.
 ?>
 
 
-<button onclick="logout();">Logout</button>
+<!-- <button onclick="logout();">Logout</button> -->
 
 <!-- <div>
     <input type="text" id="lat" placeholder="Latitude">
     <input type="text" id="lon" placeholder="Longitude">
     <button onclick="fetchWeather();">Fetch Weather</button>
     <div id="weatherResult"></div>
-</div> -->
+</div> --><br/>
 <div class="container">
     <div class="row justify-content-center">
 
@@ -40,24 +40,38 @@ header("Expires: 0"); // Proxies.
             </div>
         </div>
         <div class="col-md-6">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>City</th>
-                <th>Temperature</th>
-                <th>Description</th>
-                <th>Date</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody id="weatherTable">
-            <!-- Weather data rows will be inserted here by JavaScript -->
-        </tbody>
-    </table>
-</div>
-    </div>
-    <!-- Add this section inside your main container -->
+        <div class="table-wrapper">
 
+        <div class="table-title">
+                    <div class="row">
+                        <div class="col-sm-8"><h2>Weather <b>Details</b></h2></div>
+                    </div>
+                </div>
+        <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>City</th>
+                            <th>Temperature</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="weatherTable">
+                        <!-- Weather data rows will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+        </div>
+    </div> 
+    <div class="log-window">
+        <h3>Data History</h3>
+        <ul id="log-list">
+            <!-- Log entries will be added here -->
+        </ul>
+    </div>       
+</div>
+
+<!-- <script src="/task1-weatherApp/public/js/custom-table.js"></script> -->
 
 <script src="/task1-weatherApp/public/js/main.js"></script>
 

@@ -1,3 +1,10 @@
 body {
     font-family: Arial, sans-serif;
 }
+
+    .center-div {
+        margin: 0 auto;
+        width: 75%; /* You can adjust this value to your preference */
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Adds shadow for better visual separation */
+    }

@@ -5,4 +5,8 @@
     RewriteRule ^ index.php [L]
     ErrorDocument 404 /task1-weatherApp/public/404.php
 
+
+# Rewrite rule for Accessing fetchCustomers.php
+RewriteRule ^task2/fetch$ /task2/fetchCustomers.php [NC,L]
+
 </IfModule>
