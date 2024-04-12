@@ -1,8 +1,8 @@
 <?php
-$host = 'us-cluster-east-01.k8s.cleardb.net';
-$db = 'heroku_d46522caa835ee2';
-$user = 'b92e9267ad347b';
-$pass = 'c5191839';
+$host = 'localhost';
+$db = 'weather_app';
+$user = 'root';
+$pass = '';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
